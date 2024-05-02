@@ -1,0 +1,85 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="checkbox"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.clear-storage-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.clear-storage-button:hover {
+  background-color: #d32f2f;
+}
+
+h2 {
+  color: #333;
+}
+
+#unreadBooks,
+#readBooks {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#unreadBooks div,
+#readBooks div {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
