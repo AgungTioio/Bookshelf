@@ -7,33 +7,51 @@
     <title>Bookshelf</title>
   </head>
   <body>
-    <h1>Bookshelf</h1>
-    <form id="bookForm">
-      <div>
-        <label for="title">Judul Buku:</label>
-        <input type="text" id="title" name="title" required />
-      </div>
-      <div>
-        <label for="author">Penulis:</label>
-        <input type="text" id="author" name="author" required />
-      </div>
-      <div>
-        <label for="year">Tahun Terbit:</label>
-        <input type="number" id="year" name="year" required />
-      </div>
-      <div>
-        <input type="checkbox" id="read" name="read" />
-        <label for="read">Sudah Dibaca</label>
-      </div>
-      <button type="button" onclick="saveBook()">Simpan Buku</button>
-      <button type="button" class="clear-storage-button" onclick="confirmClearStorage()">Hapus Penyimpanan</button>
-    </form>
+    <div class="left">
+      <h1>Bookshelf</h1>
+      <form id="bookForm">
+        <div>
+          <label for="title">Judul Buku:</label>
+          <input type="text" id="title" name="title" required />
+        </div>
+        <div>
+          <label for="author">Penulis:</label>
+          <input type="text" id="author" name="author" required />
+        </div>
+        <div>
+          <label for="year">Tahun Terbit:</label>
+          <input type="number" id="year" name="year" required />
+        </div>
+        <div>
+          <input type="checkbox" id="read" name="read" />
+          <label for="read">Sudah Dibaca</label>
+        </div>
+        <button type="button" onclick="saveBook()">Simpan Buku</button>
 
-    <h2>Rak Buku Belum Dibaca</h2>
-    <ul id="unreadBooks"></ul>
+        <button type="button" class="clear-storage-button" onclick="confirmClearStorage()">Hapus Penyimpanan</button>
+      </form>
+    </div>
 
-    <h2>Rak Buku Sudah Dibaca</h2>
-    <ul id="readBooks"></ul>
+    <div class="right">
+      <div class="search-container">
+        <label for="search">Cari berdasarkan judul:</label>
+        <input type="text" id="search" oninput="searchBooks()" />
+      </div>
+
+      <h2>Rak Buku Belum Dibaca</h2>
+      <div id="unreadBooks"></div>
+
+      <h2>Rak Buku Sudah Dibaca</h2>
+      <div id="readBooks"></div>
+    </div>
+
+    <!-- Kustom Alert Element -->
+    <div id="customAlert" class="custom-alert">
+      <h3>Peringatan!</h3>
+      <p id="alertMessage"></p>
+      <button id="accept-button" onclick="acceptAction()">Hapus</button>
+      <button onclick="hideCustomAlert()">Tutup</button>
+    </div>
 
     <script src="script.js"></script>
   </body>

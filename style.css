@@ -3,6 +3,16 @@ body {
   margin: 0;
   padding: 20px;
   background-color: #f0f0f0;
+  display: flex;
+}
+
+.left {
+  width: 30%;
+  padding-right: 20px;
+}
+
+.right {
+  flex-grow: 1;
 }
 
 h1 {
@@ -29,12 +39,19 @@ label {
 }
 
 input[type="text"],
-input[type="number"],
-input[type="checkbox"] {
-  width: 100%;
+input[type="number"] {
+  width: calc(100% - 16px); /* Adjust for padding */
   padding: 8px;
   border-radius: 5px;
   border: 1px solid #ccc;
+}
+
+input[type="checkbox"] {
+  display: inline;
+}
+
+form div label[for="read"] {
+  display: inline;
 }
 
 button {
@@ -82,4 +99,65 @@ h2 {
   padding: 10px;
   background-color: #f9f9f9;
   border-radius: 5px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.book-actions button {
+  margin-right: 5px;
+}
+
+.search-container {
+  margin-bottom: 20px;
+}
+
+/* Kustom Alert CSS */
+.custom-alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  display: none;
+}
+
+.custom-alert.show {
+  display: block;
+}
+
+.custom-alert h3 {
+  margin-top: 0;
+}
+
+.custom-alert p {
+  margin-bottom: 0;
+}
+
+.custom-alert button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.custom-alert button:hover {
+  background-color: #45a049;
+}
+
+#accept-button {
+  background-color: #f44336;
+}
+
+#accept-button:hover {
+  background-color: #d32f2f;
 }
