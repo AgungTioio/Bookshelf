@@ -161,3 +161,17 @@ h2 {
 #accept-button:hover {
   background-color: #d32f2f;
 }
+
+#move-to-read:hover {
+  background: url(icons/check-circle.svg);
+}
+
+#move-to-unread:hover {
+  background: url(icons/circle.svg);
+}
+
+.booksList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

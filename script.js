@@ -1,7 +1,5 @@
-// Mengecek apakah terdapat data buku dalam local storage
 let booksData = JSON.parse(localStorage.getItem("books")) || { unread: [], read: [] };
 
-// Memperbarui rak buku
 function updateBookshelf() {
   const unreadBooksList = document.getElementById("unreadBooks");
   const readBooksList = document.getElementById("readBooks");
@@ -20,12 +18,10 @@ function updateBookshelf() {
   });
 }
 
-// Simpan data buku ke local storage
 function saveToLocalStorage() {
   localStorage.setItem("books", JSON.stringify(booksData));
 }
 
-// Menyimpan buku
 function saveBook() {
   const title = document.getElementById("title").value;
   const author = document.getElementById("author").value;
@@ -43,7 +39,6 @@ function saveBook() {
   saveToLocalStorage();
   updateBookshelf();
 
-  // Clear form inputs
   document.getElementById("title").value = "";
   document.getElementById("author").value = "";
   document.getElementById("year").value = "";
@@ -54,42 +49,44 @@ function confirmClearStorage() {
   showAlert("Apakah Anda yakin ingin menghapus seluruh penyimpanan?");
 }
 
-// Menghapus seluruh penyimpanan dalam local storage
 function clearStorage() {
   localStorage.removeItem("books");
-  location.reload(); // Refresh halaman untuk memperbarui rak buku
+  location.reload();
 }
 
 function acceptAction() {
   clearStorage();
 }
 
-// Membuat elemen div untuk buku
 function createBookElement(book, shelf) {
   const divItem = document.createElement("div");
+  divItem.classList.add("booksList");
   divItem.textContent = `${book.title} - ${book.author} (${book.year})`;
 
   const actionsContainer = document.createElement("div");
   actionsContainer.classList.add("book-actions");
 
   if (shelf === "unread") {
-    const moveToReadButton = document.createElement("button");
-    moveToReadButton.textContent = "Tandai sudah dibaca";
+    const moveToReadButton = document.createElement("img");
+    moveToReadButton.setAttribute("src", "icons/circle.svg");
+    moveToReadButton.setAttribute("id", "move-to-read");
     moveToReadButton.onclick = function () {
       moveToRead(book);
     };
     actionsContainer.appendChild(moveToReadButton);
   } else if (shelf === "read") {
-    const moveToUnreadButton = document.createElement("button");
-    moveToUnreadButton.textContent = "Tandai belum dibaca";
-    moveToUnreadButton.onclick = function () {
+    const moveToUnreadButton = document.createElement("img");
+    moveToUnreadButton.setAttribute("src", "icons/check-circle.svg");
+    moveToUnreadButton.setAttribute("id", "move-to-unread");
+
+    moveToUnreadButton.addEventListener("click", function () {
       moveToUnread(book);
-    };
+    });
     actionsContainer.appendChild(moveToUnreadButton);
   }
 
-  const deleteButton = document.createElement("button");
-  deleteButton.textContent = "Hapus";
+  const deleteButton = document.createElement("img");
+  deleteButton.setAttribute("src", "icons/trash-2.svg");
   deleteButton.onclick = function () {
     deleteBook(book, shelf);
   };
@@ -100,7 +97,6 @@ function createBookElement(book, shelf) {
   return divItem;
 }
 
-// Memindahkan buku dari rak belum dibaca ke rak sudah dibaca
 function moveToRead(book) {
   const index = booksData.unread.findIndex((item) => item === book);
   if (index !== -1) {
@@ -111,7 +107,6 @@ function moveToRead(book) {
   }
 }
 
-// Memindahkan buku dari rak sudah dibaca ke rak belum dibaca
 function moveToUnread(book) {
   const index = booksData.read.findIndex((item) => item === book);
   if (index !== -1) {
@@ -122,7 +117,6 @@ function moveToUnread(book) {
   }
 }
 
-// Menghapus buku dari rak buku
 function deleteBook(book, shelf) {
   const shelfName = shelf === "unread" ? "unread" : "read";
   const index = booksData[shelfName].findIndex((item) => item === book);
@@ -133,7 +127,6 @@ function deleteBook(book, shelf) {
   }
 }
 
-// Mencari buku berdasarkan judul
 function searchBooks() {
   const searchTerm = document.getElementById("search").value.trim().toLowerCase();
 
@@ -156,7 +149,6 @@ function searchBooks() {
   });
 }
 
-// Menampilkan alert kustom
 function showAlert(message) {
   const alertElement = document.getElementById("customAlert");
   const messageElement = document.getElementById("alertMessage");
@@ -164,11 +156,9 @@ function showAlert(message) {
   alertElement.classList.add("show");
 }
 
-// Menyembunyikan alert kustom
 function hideCustomAlert() {
   const alertElement = document.getElementById("customAlert");
   alertElement.classList.remove("show");
 }
 
-// Memanggil fungsi updateBookshelf() untuk menampilkan rak buku saat halaman dimuat
 updateBookshelf();
