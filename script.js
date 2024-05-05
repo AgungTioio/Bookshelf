@@ -1,4 +1,7 @@
 let booksData = JSON.parse(localStorage.getItem("books")) || { unread: [], read: [] };
+const saveBookButton = document.querySelector("#saveBook");
+const clearStorageButton = document.querySelector(".clear-storage-button");
+const searchBar = document.querySelector("#search");
 
 function updateBookshelf() {
   const unreadBooksList = document.getElementById("unreadBooks");
@@ -162,3 +165,15 @@ function hideCustomAlert() {
 }
 
 updateBookshelf();
+
+saveBookButton.addEventListener("click", () => {
+  saveBook();
+});
+
+clearStorageButton.addEventListener("click", () => {
+  confirmClearStorage();
+});
+
+searchBar.addEventListener("input", () => {
+  searchBooks();
+});
