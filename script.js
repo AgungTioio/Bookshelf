@@ -2,6 +2,7 @@ let booksData = JSON.parse(localStorage.getItem("books")) || { unread: [], read:
 const saveBookButton = document.querySelector("#saveBook");
 const clearStorageButton = document.querySelector(".clear-storage-button");
 const searchBar = document.querySelector("#search");
+const showFormButton = document.querySelector(".show-form-button");
 
 function updateBookshelf() {
   const unreadBooksList = document.getElementById("unreadBooks");
@@ -48,26 +49,20 @@ function saveBook() {
   document.getElementById("read").checked = false;
 }
 
-function confirmClearStorage() {
-  showAlert("Apakah Anda yakin ingin menghapus seluruh penyimpanan?");
-}
-
 function clearStorage() {
   localStorage.removeItem("books");
   location.reload();
 }
 
-function acceptAction() {
-  clearStorage();
-}
-
 function createBookElement(book, shelf) {
   const divItem = document.createElement("div");
-  divItem.classList.add("booksList");
+  divItem.classList.add("booksList", "p-2", "mb-2", "rounded-md", "flex", "border", "border-slate-200", "justify-between");
+
   divItem.textContent = `${book.title} - ${book.author} (${book.year})`;
 
   const actionsContainer = document.createElement("div");
   actionsContainer.classList.add("book-actions");
+  actionsContainer.classList.add("flex");
 
   if (shelf === "unread") {
     const moveToReadButton = document.createElement("img");
@@ -152,28 +147,21 @@ function searchBooks() {
   });
 }
 
-function showAlert(message) {
-  const alertElement = document.getElementById("customAlert");
-  const messageElement = document.getElementById("alertMessage");
-  messageElement.textContent = message;
-  alertElement.classList.add("show");
-}
-
-function hideCustomAlert() {
-  const alertElement = document.getElementById("customAlert");
-  alertElement.classList.remove("show");
-}
-
 updateBookshelf();
 
 saveBookButton.addEventListener("click", () => {
   saveBook();
+  document.querySelector("div.form").setAttribute("hidden", true);
 });
 
 clearStorageButton.addEventListener("click", () => {
-  confirmClearStorage();
+  clearStorage();
 });
 
 searchBar.addEventListener("input", () => {
   searchBooks();
+});
+
+showFormButton.addEventListener("click", () => {
+  document.querySelector("div.form").removeAttribute("hidden");
 });
