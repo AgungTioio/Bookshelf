@@ -10,11 +10,11 @@
   <body class="w-2/3 mx-auto h-screen flex bg-slate-200 items-center justify-between">
     <div class="p-5 mb-5 text-white">
       <h1 class="font-bold text-4xl text-center text-black mb-2 block">Bookshelf</h1>
-      <button type="button" class="clear-storage-button bg-red-500 p-5 rounded-md mb-2 inline-block align-baseline">
+      <button type="button" class="clear-storage-button bg-red-500 p-5 rounded-md mb-2 inline-block align-baseline transition hover:bg-red-600 duration-300">
         Hapus Penyimpanan
         <i data-feather="trash-2" class="inline"></i>
       </button>
-      <button type="button" class="show-form-button bg-green-500 p-5 rounded-md mb-2 inline-block align-baseline">
+      <button type="button" class="show-form-button bg-green-500 p-5 rounded-md mb-2 inline-block align-baseline transition hover:bg-green-600 duration-300">
         Tambah Buku
         <i data-feather="plus-circle" class="inline"></i>
       </button>
@@ -40,7 +40,7 @@
             <input type="checkbox" id="read" name="read" />
             <label for="read">Sudah Dibaca</label>
           </div>
-          <button type="button" id="saveBook" class="bg-green-500 p-3 rounded-md">Simpan Buku</button>
+          <button type="button" id="saveBook" class="bg-green-500 p-3 rounded-md transition hover:bg-green-600 duration-300">Simpan Buku</button>
         </form>
       </div>
     </div>

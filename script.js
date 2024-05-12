@@ -147,6 +147,16 @@ function searchBooks() {
   });
 }
 
+function removeStorageAlert() {
+  let alert = confirm("Apakah anda ingin menghapus semua buku?");
+
+  if (alert == true) {
+    clearStorage();
+  } else {
+    return;
+  }
+}
+
 updateBookshelf();
 
 saveBookButton.addEventListener("click", () => {
@@ -155,7 +165,7 @@ saveBookButton.addEventListener("click", () => {
 });
 
 clearStorageButton.addEventListener("click", () => {
-  clearStorage();
+  removeStorageAlert();
 });
 
 searchBar.addEventListener("input", () => {
