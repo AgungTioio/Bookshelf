@@ -7,45 +7,45 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <title>Bookshelf</title>
   </head>
-  <body class="w-2/3 mx-auto h-screen flex bg-slate-200 items-center justify-between">
-    <div class="p-5 mb-5 text-white">
+  <body class="w-2/3 mx-auto h-screen bg-slate-200 items-center justify-between box-border">
+    <div class="p-5 text-white text-center">
       <h1 class="font-bold text-4xl text-center text-black mb-2 block">Bookshelf</h1>
-      <button type="button" class="clear-storage-button bg-red-500 p-5 rounded-md mb-2 inline-block align-baseline transition hover:bg-red-600 duration-300">
+      <button type="button" class="clear-storage-button bg-red-500 p-5 rounded-md mb-1 inline-block align-baseline transition hover:bg-red-600 duration-300">
         Hapus Penyimpanan
         <i data-feather="trash-2" class="inline"></i>
       </button>
-      <button type="button" class="show-form-button bg-green-500 p-5 rounded-md mb-2 inline-block align-baseline transition hover:bg-green-600 duration-300">
+      <button type="button" class="show-form-button bg-green-500 p-5 rounded-md mb-1 inline-block align-baseline transition hover:bg-green-600 duration-300">
         Tambah Buku
         <i data-feather="plus-circle" class="inline"></i>
       </button>
-
-      <div class="form bg-slate-500 rounded-md p-5" hidden>
-        <form id="bookForm" class="">
-          <div>
-            <label for="title">Judul Buku:</label>
-            <br />
-            <input class="w-full text-black" type="text" id="title" name="title" required />
-          </div>
-          <div>
-            <label for="author">Penulis:</label>
-            <br />
-            <input class="w-full text-black" type="text" id="author" name="author" required />
-          </div>
-          <div>
-            <label for="year">Tahun Terbit:</label>
-            <br />
-            <input class="w-full text-black" type="number" id="year" name="year" required />
-          </div>
-          <div>
-            <input type="checkbox" id="read" name="read" />
-            <label for="read">Sudah Dibaca</label>
-          </div>
-          <button type="button" id="saveBook" class="bg-green-500 p-3 rounded-md transition hover:bg-green-600 duration-300">Simpan Buku</button>
-        </form>
-      </div>
     </div>
 
-    <div class="bg-slate-500 p-5 border rounded-md text-white">
+    <div class="form bg-slate-500 rounded-md p-5 text-white mb-5" hidden>
+      <form id="bookForm" class="">
+        <div>
+          <label for="title">Judul Buku:</label>
+          <br />
+          <input class="w-full text-black" type="text" id="title" name="title" required />
+        </div>
+        <div>
+          <label for="author">Penulis:</label>
+          <br />
+          <input class="w-full text-black" type="text" id="author" name="author" required />
+        </div>
+        <div>
+          <label for="year">Tahun Terbit:</label>
+          <br />
+          <input class="w-full text-black" type="number" id="year" name="year" required />
+        </div>
+        <div>
+          <input type="checkbox" id="read" name="read" />
+          <label for="read">Sudah Dibaca</label>
+        </div>
+        <button type="button" id="saveBook" class="bg-green-500 p-3 rounded-md transition hover:bg-green-600 duration-300">Simpan Buku</button>
+      </form>
+    </div>
+
+    <div class="bg-slate-500 p-5 border rounded-md box-border text-white">
       <div class="search-container w-full">
         <label for="search">Cari berdasarkan judul:</label>
         <input type="text" id="search" class="text-black mb-2" oninput="searchBooks()" />

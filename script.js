@@ -83,12 +83,25 @@ function createBookElement(book, shelf) {
     actionsContainer.appendChild(moveToUnreadButton);
   }
 
+  // const editButton = document.createElement("img");
+  // editButton.setAttribute("src", "icons/edit.svg");
+  // editButton.addEventListener("click", () => {
+  //   alert("tes");
+  // });
+
   const deleteButton = document.createElement("img");
   deleteButton.setAttribute("src", "icons/trash-2.svg");
   deleteButton.onclick = function () {
-    deleteBook(book, shelf);
+    const confirmDeleteBook = confirm(`Apakah anda akan menghapus buku ${book.title} ?`);
+
+    if (confirmDeleteBook == true) {
+      deleteBook(book, shelf);
+    } else {
+      return;
+    }
   };
-  actionsContainer.appendChild(deleteButton);
+
+  actionsContainer.append(deleteButton);
 
   divItem.appendChild(actionsContainer);
 
@@ -155,6 +168,10 @@ function removeStorageAlert() {
   } else {
     return;
   }
+}
+
+function editBook(book, shelf) {
+  const editButton = document.querySelector("");
 }
 
 updateBookshelf();
